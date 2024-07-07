@@ -1,0 +1,4 @@
+You should never share your private key.
+But here is it to give an example.
+
+Don't use it outside of a quick test.

@@ -45,42 +45,12 @@ def push_text_random(ip, port):
 
 
 
-def listen_udp(port, is_text=False):
-            # Create a socket object
-            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-            # Bind the socket to the specified port
-            sock.bind(("0.0.0.0", port))
-
-            while True:
-                # Receive data from the socket
-                data, addr = sock.recvfrom(1024)
-                if is_text:
-                    # Decode the received data
-                    text = data.decode("utf-8")
-
-                    print(f"Received text: {text}")
-                else:
-                    # Print the received byte array
-                    print(f"Received byte array: {data}")
-
-                # Process the received data
-                # TODO: Add your code here to process the received data
-
-        # Create a thread for listening to port 7299
-udp_thread = threading.Thread(target=listen_udp, args=(7399,False))
-udp_thread.start()
-udp_thread = threading.Thread(target=listen_udp, args=(7299,True))
-udp_thread.start()
-
-
-
 
 
 while True:
-    time.sleep(3)
+    time.sleep(1)
     push_byte_array("127.0.0.1", 7399)
-    # time.sleep(3)
-    # push_text_random("127.0.0.1",4566)
+    time.sleep(1)
+    push_text_random("127.0.0.1",7299)
     
     
